@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\TestAccessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +43,5 @@ Route::group([
 Route::group([
     'middleware' => ['api', 'token', 'access'],
 ], function () {
-    Route::get('/seeder', function(){ echo "test"; })->name('api.commands.run_seeder');
+    Route::get('/test_login', [TestAccessController::class, 'index']);
 });

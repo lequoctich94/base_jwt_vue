@@ -35,8 +35,10 @@ class Handler
        
         switch ($this->auth_type) {
             case config('constants.authenticate.internal.type'):
-                //vd
+                //vào đây
                 $this->setAuthenticateInternal($this->guard);
+                //gọi class InternalInterface, class này được implement bới Def
+                // nên gọi tới đây, cũng như gọi đến Def (App\Core\Authentications\Internal\Def\Authenticate)
                 return App::make(InternalInterface::class);
             case config('constants.authenticate.sso.type'):
                 $this->setAuthenticateSSO($this->guard, $this->service_type);
@@ -59,6 +61,7 @@ class Handler
             //     });
             //     break;
             default:
+                //setting Def là instance của InternalInterface (tương tự như RepositoryServiceProvider.php)
                 App::bind(InternalInterface::class, function () use($guard) {
                     return new Def($guard);
                 });

@@ -71,7 +71,13 @@ kiểm tra controller, tạo những model, repo cần thiết
 ->chạy:  composer dump-autoload
 -> thêm config: exceptions.php
 
-----------
+//test access sau khi login và phân quyền
+-> thêm vào route
+-> tao access helper
+-> tạo config access-roles
+-> thêm vào composer file
+
+-----------------------------------------------------------------
 điều tra ResponseServiceProvider, jsonToken
 
 https://viblo.asia/p/laravel-su-dung-authentication-json-web-token-jwt-ByEZkjBYKQ0

@@ -26,7 +26,9 @@ class Authenticate extends Handler implements AuthenticateInterface
      */
     public function login($argm)
     {
+        //set các thông số bên App\Core\Authentications\Handler
         $this->make($argm);
+        //gọi qua handle
         return $this->getAuthenticate()->login($this->info_data);
     }
 

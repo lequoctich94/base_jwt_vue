@@ -29,6 +29,7 @@ class TokenJWT
             if(empty($request->bearerToken())) {
                 throw new TokenNotFoundException();
             }
+            //so sánh token
             if (!JWTAuth::parseToken()->authenticate()) {
                 throw new TokenNotFoundException();
             }
